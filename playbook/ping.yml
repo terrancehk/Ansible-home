@@ -2,7 +2,8 @@
 - hosts: all
   gather_facts: true
   tasks:
-    - name: ping all hosts for test
+    - name: ping all servers
       ping:
-
-
+    - name: debug tasks
+      debug:
+        msg: "{{ ansible_facts }}"
