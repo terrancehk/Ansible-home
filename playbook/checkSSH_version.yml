@@ -3,6 +3,7 @@
   gather_facts: false
   vars:
     command: "ssh -V"
+  ignore_errors: true
   tasks:
     - name: Check SSH version
       shell: "{{ command }}"
