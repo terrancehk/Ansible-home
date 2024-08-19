@@ -1,0 +1,13 @@
+---
+- hosts: all
+  vars:
+    kernel_version: "{{ ansible_kernel }}"
+  tasks:
+    - name: kernel version from facts
+      debug:
+        msg: "{{ ansible_hostname }} {{ ansible_all_ipv4_addresses }} {{ ansible_distribution }} {{ ansible_distribution_version }} {{ ansible_kernel }}"
+    - name: add ansible log to /var/log/tower/kernellog
+      lineinfile:
+        path: /var/log/tower/kernellog
+        line: "{{ ansible_date_time.date }} {{ ansible_hostname }} {{ ansible_all_ipv4_addresses }} {{ ansible_distribution }} {{ ansible_distribution_version }}"
+      create: yes
