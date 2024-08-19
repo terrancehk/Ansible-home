@@ -10,4 +10,4 @@
     - name: Print ssh version
       debug:
         #msg: "SSH version of {{ inventory_hostname }} is {{ ssh_version }} "
-        vars: ssh_version 
+        var: ssh_version 
