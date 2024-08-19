@@ -10,4 +10,4 @@
       lineinfile:
         path: /var/log/tower/kernellog
         line: "{{ ansible_date_time.date }} {{ ansible_hostname }} {{ ansible_all_ipv4_addresses }} {{ ansible_distribution }} {{ ansible_distribution_version }}"
-      create: yes
+        create: yes
