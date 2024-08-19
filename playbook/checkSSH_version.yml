@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: false
+  vars:
+    command: "ssh -V"
+  tasks:
+    - name: Check SSH version
+      shell: "{{ command }}"
+      register: ssh_version
+    - name: Print ssh version
+      debug:
+        msg: "SSH version of {{ hostname_inventory }} is {{ ssh_version }} "
