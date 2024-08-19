@@ -9,4 +9,5 @@
       register: ssh_version
     - name: Print ssh version
       debug:
-        msg: "SSH version of {{ inventory_hostname }} is {{ ssh_version }} "
+        #msg: "SSH version of {{ inventory_hostname }} is {{ ssh_version }} "
+        vars: ssh_version 
