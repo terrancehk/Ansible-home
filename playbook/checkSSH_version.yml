@@ -6,8 +6,9 @@
   tasks:
     - name: Check SSH version
       shell: "{{ command }}"
-      register: ssh_version
+      register: ansible_ssh_version
     - name: Print ssh version
       debug:
         #msg: "SSH version of {{ inventory_hostname }} is {{ ssh_version }} "
-        var: ssh_version.stderr
+        #var: ssh_version.stderr
+        msg: "OpenSSH version is {{ ansible_ssh_version }}"
