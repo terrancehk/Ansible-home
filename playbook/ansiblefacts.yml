@@ -26,4 +26,4 @@
       become: yes
       become_user: root 
       shell: "uname -a"
-      when: "{{ ansible_hostname == 'awx02'}}"
+      when: ansible_hostname == 'awx02'
