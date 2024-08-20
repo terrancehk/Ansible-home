@@ -2,6 +2,6 @@
 - hosts: all
   gather_facts: true 
   tasks: 
-  debug: 
     - name: Print the variables
-      var: "{{ ansible_all_ipv4_addresses }}"
+      debug: 
+        var: "{{ ansible_all_ipv4_addresses }}"
