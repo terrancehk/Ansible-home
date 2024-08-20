@@ -5,3 +5,24 @@
     - name: Print the variables
       debug: 
         msg: "{{ ansible_distribution }}  {{ ansible_distribution_version }} {{ ansible_memfree_mb }} {{ ansible_memtotal_mb }} {{ ansible_processor_cores }} {{ ansible_architecture }}"
+
+
+- name: Ansible Variable Example Playbook
+  hosts: all
+  tasks:
+
+    # Print the Dictionary
+    - debug:
+        msg: "{{ansible_mounts}}"
+
+    # Parsing through Variable Dictionary
+    - debug:
+        msg: "Mount Point {{item.mount}} is at {{item.block_used/item.block_total*100}} percent "
+      loop: "{{ansible_mounts}}"
+
+    # Execute Host based task using variable
+    - name: Execute the command only mwiapp01 server
+      become: yes
+      become_user: root 
+      shell: "uname -a"
+      when: "{{ ansible_hostname == 'mwiapp01'}}"
