@@ -1,4 +1,5 @@
 --- 
+# This playbook collect info from ansible fact and print its mountpoint disk usage 
 - hosts: all
   gather_facts: true 
   tasks: 
@@ -25,4 +26,4 @@
       become: yes
       become_user: root 
       shell: "uname -a"
-      when: "{{ ansible_hostname == 'mwiapp01'}}"
+      when: "{{ ansible_hostname == 'awx02'}}"
